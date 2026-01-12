@@ -2,6 +2,15 @@
   "title": "UniVideo",
   "description": "",
   "icon": "icon.png",
-  "links": [],
+  "links": [
+    {
+      "title": "github",
+      "value": "https://github.com/KlingTeam"
+    },
+    {
+      "title": "website",
+      "value": "https://github.com/KlingTeam/UniVideo"
+    }
+  ],
   "posts": []
 }
