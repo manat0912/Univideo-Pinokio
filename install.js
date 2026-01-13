@@ -5,18 +5,17 @@ module.exports = {
   env: [
     {
       key: "UniVideo_TOKEN",
-      title: "Huggingface Token (KlingTeam/UniVideo)",
+      title: "Huggingface Token (Harryji168/univideo-studio)",
       description: "Place_Token_Here",
       host: "huggingface.co"
     }
-  ],
   run: [
     // Edit this step to customize the git repository to use
     {
       method: "shell.run",
       params: {
         message: [
-          "git clone https://huggingface.co/KlingTeam/UniVideo app",
+          "git clone https://huggingface.co/spaces/Harryji168/univideo-studio app",
         ]
       }
     },
@@ -29,7 +28,6 @@ module.exports = {
         message: [
           "uv tool install hf",
           "git xet install",
-          "hf download KlingTeam/UniVideo --repo-type=space",
           "uv pip install gradio devicetorch",
           "uv pip install -r requirements.txt"
         ]
@@ -46,9 +44,18 @@ module.exports = {
           flashattention: true,   // uncomment this line if your project requires flashattention
           xformers: true,   // uncomment this line if your project requires xformers
           triton: true,   // uncomment this line if your project requires triton
-          sageattention: true   // uncomment this line if your project requires sageattention
-        }
+          sageattention: true, // uncomment this line if your project requires sageattention
+        }  
       }
     },
-  ]
-}
+    
+    {
+      method: "shell.run",
+      params: {
+        venv: "env",
+        path: "app",
+        message: "hf download Harryji168/univideo-studio --repo-type=space --token {{env.UniVideo_TOKEN}} --local-dir .",
+        }
+      }
+    ]
+  }
